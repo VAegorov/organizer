@@ -25,8 +25,10 @@
                 <!-- цикл по столбам -->
                 <?php foreach ($row as $i => $v) {?>
                     <!-- воскресенье - "красный" день -->
-                    <td style="<?= $i == 6 ? 'color:red' : '' ?>">
-                        <a href="#"><?= $v ? $v : "&nbsp;" ?></a>
+                    <td>
+                        <a style="<?= $i == 6 ? 'color:red' : '' ?>"<?= $v ? "href=\"one_week.php?date=$v\"" : "" ?>>
+                            <?= $v ? $v : "&nbsp;" ?>
+                        </a>
                     </td>
                 <?php } ?>
             </tr>
