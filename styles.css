@@ -1,3 +1,18 @@
 body {
     background: aquamarine;
 }
+
+table {
+    border:1px solid blue;
+    border-collapse:collapse;
+}
+
+td {border:1px solid blue;}
+
+.cellbut {
+    width:100%
+}
+
+textarea {
+    width:100%
+}

@@ -10,8 +10,13 @@
 </head>
 <body>
     <h1>Органайзер</h1>
-    <p>Сегодня: <?=current_date(); ?></p>
+    <p><a href="index.php">Сегодня: </a><?=current_date(); ?></p>
+    <form method="GET" action="index.php">
+        <p>Выберите месяц и год: <input type="month" name="year_month" value="2018-01"></p>
+        <p><input type="submit" value="Выбрать"></p>
+    </form>
     <table border='1'>
+        <captuion><?="$month_ru $year"; ?></captuion>
         <tr>
             <td>Пн</td>
             <td>Вт</td>
@@ -38,30 +43,30 @@
 
     </table>
     <br>
-    <table border='1'>
+    <table width="100%" border='1'>
         <form method="GET" action="index.php">
             <tr>
-                <th><button type="submit" name="day" value="#дата">Понедельник</button></th>
-                <th><button type="submit" name="day" value="">Вторник</button></th>
-                <th><button type="submit" name="day" value="">Среда</button></th>
-                <th><button type="submit" name="day" value="">Четверг</button></th>
-                <th><button type="submit" name="day" value="">Пятница</button></th>
-                <th><button type="submit" name="day" value="">Суббота</button></th>
-                <th><button type="submit" name="day" value="">Воскресенье</button></th>
+                <th><button class="cellbut" type="submit" name="day" value="#дата">Понедельник</button></th>
+                <th><button class="cellbut" type="submit" name="day" value="">Вторник</button></th>
+                <th><button class="cellbut" type="submit" name="day" value="">Среда</button></th>
+                <th><button class="cellbut" type="submit" name="day" value="">Четверг</button></th>
+                <th><button class="cellbut" type="submit" name="day" value="">Пятница</button></th>
+                <th><button class="cellbut" type="submit" name="day" value="">Суббота</button></th>
+                <th><button class="cellbut" type="submit" name="day" value="">Воскресенье</button></th>
             </tr>
         </form>
         <tr>
-            <!--<td><?/*=; */?></td>
-        <td><?/*=; */?></td>
-        <td><?/*=; */?></td>
-        <td><?/*=; */?></td>
-        <td><?/*=; */?></td>
-        <td><?/*=; */?></td>
-        <td><?/*=; */?></td>-->
+            <td><?="&nbsp"; ?></td>
+            <td><?="&nbsp"; ?></td>
+            <td><?="&nbsp"; ?></td>
+            <td><?="&nbsp"; ?></td>
+            <td><?="&nbsp"; ?></td>
+            <td><?="&nbsp"; ?></td>
+            <td><?="&nbsp"; ?></td>
         </tr>
     </table>
     <form>
-        <textarea name="schedule" rows="50" cols="100"></textarea>
+        <textarea size="100%" name="schedule" rows="30"></textarea>
         <p><button type="submit" name="save" value="#дата">Сохранить</button></p>
     </form>
 </body>

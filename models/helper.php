@@ -15,6 +15,7 @@ function current_date()
     return date("d-m-Y");
 }
 
+//создание календаря
 function makeCal($year, $month) {
     // Получаем номер дня недели для 1 числа месяца.
     $wday = date('N', mktime(0, 0, 0, $month, 1, $year));
@@ -46,4 +47,12 @@ function makeCal($year, $month) {
         $cal[] = $row;
     }
     return $cal;
+}
+
+function monthRu($month)
+{
+    $month_ru = str_replace([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+                            ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь',
+                            'Ноябрь', 'Декабрь'], $month);
+    return $month_ru;
 }
