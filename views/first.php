@@ -46,13 +46,13 @@
     <table width="100%" border='1'>
         <form method="GET" action="index.php">
             <tr>
-                <th><button class="cellbut" type="submit" name="day" value="#дата">Понедельник</button></th>
-                <th><button class="cellbut" type="submit" name="day" value="">Вторник</button></th>
-                <th><button class="cellbut" type="submit" name="day" value="">Среда</button></th>
-                <th><button class="cellbut" type="submit" name="day" value="">Четверг</button></th>
-                <th><button class="cellbut" type="submit" name="day" value="">Пятница</button></th>
-                <th><button class="cellbut" type="submit" name="day" value="">Суббота</button></th>
-                <th><button class="cellbut" type="submit" name="day" value="">Воскресенье</button></th>
+                <th><button class="cellbut" type="submit" name="day" value="<?=$week_day[1]; ?>">Понедельник</button></th>
+                <th><button class="cellbut" type="submit" name="day" value="<?=$week_day[2]; ?>">Вторник</button></th>
+                <th><button class="cellbut" type="submit" name="day" value="<?=$week_day[3]; ?>">Среда</button></th>
+                <th><button class="cellbut" type="submit" name="day" value="<?=$week_day[4]; ?>">Четверг</button></th>
+                <th><button class="cellbut" type="submit" name="day" value="<?=$week_day[5]; ?>">Пятница</button></th>
+                <th><button class="cellbut" type="submit" name="day" value="<?=$week_day[6]; ?>">Суббота</button></th>
+                <th><button class="cellbut" type="submit" name="day" value="<?=$week_day[7]; ?>">Воскресенье</button></th>
             </tr>
         </form>
         <tr>
@@ -65,6 +65,7 @@
             <td><?=$week_day[7]; ?></td>
         </tr>
     </table>
+    <p>Дата: <?=$date; ?></p>
     <form>
         <textarea size="100%" name="schedule" rows="30"></textarea>
         <p><button type="submit" name="save" value="#дата">Сохранить</button></p>
