@@ -4,7 +4,7 @@ function connect()
     $host = 'localhost';
     $user = 'root';
     $password = '';
-    $db_name = '#';
+    $db_name = 'test';
     $link = mysqli_connect($host, $user, $password, $db_name);
     mysqli_set_charset($link, "UTF8") or die($link);
     return $link;
@@ -77,3 +77,23 @@ function setWeekDay($day, $month, $year)
 
     return $week_day;
 }
+
+function saveSchedule($link, $date, $schedule)
+{
+    $date_arr = explode('-', $date);
+    var_dump($date = "$date_arr[2]-$date_arr[1]-$date_arr[0]");
+    $date = mysqli_real_escape_string($link, trim($date));
+    $schedule = mysqli_real_escape_string($link, trim($schedule));
+    $query = sprintf("SELECT date FROM organizer WHERE date='%s'", $date);
+    $result = mysqli_query($link, $query) or die(mysqli_error($link));
+    //var_dump(mysqli_num_rows($result));
+    if (mysqli_num_rows($result) === 0) {
+        $query = sprintf("INSERT INTO organizer (date, schedule) VALUES ('%s', '%s')", $date, $schedule);
+        $result = mysqli_query($link, $query) or die(mysqli_error($link));
+    } else {
+        $query = sprintf("UPDATE organizer SET date='%s', schedule='%s' WHERE date='%s'", $date, $schedule, $date);
+        $result = mysqli_query($link, $query) or die(mysqli_error($link));
+    }
+    return $result;
+}
+

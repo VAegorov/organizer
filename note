@@ -3,3 +3,4 @@ BD:
 -id
 -date
 -schedule
+http://127.0.0.1/organizer/index.php?schedule=text&save=22-1-2018

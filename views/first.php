@@ -66,9 +66,9 @@
         </tr>
     </table>
     <p>Дата: <?=$date; ?></p>
-    <form>
+    <form method="GET" action="">
         <textarea size="100%" name="schedule" rows="30"></textarea>
-        <p><button type="submit" name="save" value="#дата">Сохранить</button></p>
+        <p><button type="submit" name="save" value="<?=$date; ?>">Сохранить</button></p>
     </form>
 </body>
 </html>

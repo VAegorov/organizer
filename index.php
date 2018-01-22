@@ -1,6 +1,7 @@
 <?php
 require_once "models/helper.php";
 
+$link = connect();
 $now = getdate();
 $year = $now['year'];
 $month = $now['mon'];
@@ -28,9 +29,7 @@ if (isset($_REQUEST['date'])) {
     $date = "$day-$month-$year";
 }
 
-$cal = makeCal($year, $month);
 
-$week_day = setWeekDay($day, $month, $year);
 
 if (isset($_REQUEST['day'])) {
     $date = $_REQUEST['day'];
@@ -40,6 +39,22 @@ if (isset($_REQUEST['day'])) {
     $year = (int)$arr[2];
     $month_ru = monthRu($month);
 }
+
+if (isset($_REQUEST['save'])) {
+    if (empty($_REQUEST['schedule'])) {
+        echo "Вы не добавили никаких мероприятий";
+    } else {
+        $date = $_REQUEST['save'];
+        $schedule = $_REQUEST['schedule'];
+        $result = saveSchedule($link, $date, $schedule);
+        if ($result) "Мероприятия добавлены";
+    }
+}
+
+
+$cal = makeCal($year, $month);
+
+$week_day = setWeekDay($day, $month, $year);
 /*echo "<pre>";
 var_dump($cal);
 echo "</pre>";*/
