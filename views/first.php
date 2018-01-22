@@ -12,7 +12,7 @@
     <h1>Органайзер</h1>
     <p><a href="index.php">Сегодня: </a><?=current_date(); ?></p>
     <form method="GET" action="index.php">
-        <p>Выберите месяц и год: <input type="month" name="year_month" value="2018-01"></p>
+        <p>Выберите месяц и год: <input type="month" name="year_month" value="<?php if (isset($_REQUEST['year_month']) && !empty($_REQUEST['year_month'])) echo "{$_REQUEST['year_month']}"; ?>"></p>
         <p><input type="submit" value="Выбрать"></p>
     </form>
     <table border='1'>
