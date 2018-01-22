@@ -81,7 +81,7 @@ function setWeekDay($day, $month, $year)
 function saveSchedule($link, $date, $schedule)
 {
     $date_arr = explode('-', $date);
-    var_dump($date = "$date_arr[2]-$date_arr[1]-$date_arr[0]");
+    $date = "$date_arr[2]-$date_arr[1]-$date_arr[0]";
     $date = mysqli_real_escape_string($link, trim($date));
     $schedule = mysqli_real_escape_string($link, trim($schedule));
     $query = sprintf("SELECT date FROM organizer WHERE date='%s'", $date);
@@ -97,3 +97,14 @@ function saveSchedule($link, $date, $schedule)
     return $result;
 }
 
+function display($link, $date)
+{
+    $date_arr = explode('-', $date);
+    $date = "$date_arr[2]-$date_arr[1]-$date_arr[0]";
+    $date = mysqli_real_escape_string($link, trim($date));
+    $query = sprintf("SELECT date, schedule FROM organizer WHERE date='%s'", $date);
+    $result = mysqli_query($link, $query) or die(mysqli_error($link));
+    $schedule_one = [];
+    $schedule_one = mysqli_fetch_assoc($result);
+    return $schedule_one;
+}

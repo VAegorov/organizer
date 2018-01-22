@@ -8,6 +8,7 @@ $month = $now['mon'];
 $month_ru = monthRu($month);
 $day = $now['mday'];
 $date = "$day-$month-$year";
+$schedule_one = display($link, $date);
 
 if (isset($_REQUEST['year_month'])) {
     if (empty($_REQUEST['year_month'])) {
@@ -18,6 +19,7 @@ if (isset($_REQUEST['year_month'])) {
         $month = (int)$year_month[1];
         $month_ru = monthRu($month);
         $date = "$day-$month-$year";
+        $schedule_one = display($link, $date);
     }
 }
 
@@ -27,6 +29,7 @@ if (isset($_REQUEST['date'])) {
     $year = $_REQUEST['year'];
     $month_ru = monthRu($month);
     $date = "$day-$month-$year";
+    $schedule_one = display($link, $date);
 }
 
 
@@ -38,6 +41,7 @@ if (isset($_REQUEST['day'])) {
     $month = (int)$arr[1];
     $year = (int)$arr[2];
     $month_ru = monthRu($month);
+    $schedule_one = display($link, $date);
 }
 
 if (isset($_REQUEST['save'])) {
@@ -47,7 +51,10 @@ if (isset($_REQUEST['save'])) {
         $date = $_REQUEST['save'];
         $schedule = $_REQUEST['schedule'];
         $result = saveSchedule($link, $date, $schedule);
-        if ($result) "Мероприятия добавлены";
+        if ($result) {
+            $schedule_one = display($link, $date);
+            echo "Мероприятия добавлены";
+        }
     }
 }
 
