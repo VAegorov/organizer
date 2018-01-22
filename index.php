@@ -5,6 +5,7 @@ $now = getdate();
 $year = $now['year'];
 $month = $now['mon'];
 $month_ru = monthRu($month);
+
 if (isset($_REQUEST['year_month'])) {
     if (empty($_REQUEST['year_month'])) {
         echo "Вы не выбрали дату";
@@ -14,7 +15,13 @@ if (isset($_REQUEST['year_month'])) {
         $month = (int)$year_month[1];
         $month_ru = monthRu($month);
     }
+}
 
+if (isset($_REQUEST['date'])) {
+    $day = $_REQUEST['date'];
+    $month = $_REQUEST['month'];
+    $year = $_REQUEST['year'];
+    $month_ru = monthRu($month);
 }
 
 $cal = makeCal($year, $month);

@@ -33,7 +33,7 @@
                 <?php foreach ($row as $i => $v) {?>
                     <!-- воскресенье - "красный" день -->
                     <td>
-                        <a style="<?= $i == 6 ? 'color:red' : '' ?>"<?= $v ? "href=\"index.php?date=$v\"" : "" ?>>
+                        <a style="<?= $i == 6 ? 'color:red' : '' ?>"<?= $v ? "href=\"index.php?date=$v&year=$year&month=$month\"" : "" ?>>
                             <?= $v ? $v : "&nbsp;" ?>
                         </a>
                     </td>
