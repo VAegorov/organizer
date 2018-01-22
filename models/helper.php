@@ -56,3 +56,24 @@ function monthRu($month)
     $month_ru = $arr[$month];
     return $month_ru;
 }
+
+function setWeekDay($day, $month, $year)
+{
+    //получаем день недели выбранной даты(1-понед)
+    $wday = date('N', mktime(0, 0, 0, $month, $day, $year));
+    $week_day = [];
+    //$day_isx = mktime(0, 0, 0, $month, $day, $year);//в формате timestamp
+    $day_isx = "$day-$month-$year";
+    $d = date_create("$day_isx");
+    for ($i= $wday; $i <= 7; $i++) {
+        $week_day[$i] = date_format($d, 'd-m-Y');
+        $d = date_modify($d, '1 day');
+    }
+    $d = date_create("$day_isx");
+    for ($i= $wday; $i >= 1; $i--) {
+        $week_day[$i] = date_format($d, 'd-m-Y');
+        $d = date_modify($d, "-1 day");
+    }
+
+    return $week_day;
+}

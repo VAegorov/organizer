@@ -56,13 +56,13 @@
             </tr>
         </form>
         <tr>
-            <td><?="&nbsp"; ?></td>
-            <td><?="&nbsp"; ?></td>
-            <td><?="&nbsp"; ?></td>
-            <td><?="&nbsp"; ?></td>
-            <td><?="&nbsp"; ?></td>
-            <td><?="&nbsp"; ?></td>
-            <td><?="&nbsp"; ?></td>
+            <td><?=$week_day[1]; ?></td>
+            <td><?=$week_day[2]; ?></td>
+            <td><?=$week_day[3]; ?></td>
+            <td><?=$week_day[4]; ?></td>
+            <td><?=$week_day[5]; ?></td>
+            <td><?=$week_day[6]; ?></td>
+            <td><?=$week_day[7]; ?></td>
         </tr>
     </table>
     <form>

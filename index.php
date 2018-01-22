@@ -5,6 +5,7 @@ $now = getdate();
 $year = $now['year'];
 $month = $now['mon'];
 $month_ru = monthRu($month);
+$day = 1;
 
 if (isset($_REQUEST['year_month'])) {
     if (empty($_REQUEST['year_month'])) {
@@ -25,6 +26,8 @@ if (isset($_REQUEST['date'])) {
 }
 
 $cal = makeCal($year, $month);
+
+$week_day = setWeekDay($day, $month, $year);
 /*echo "<pre>";
 var_dump($cal);
 echo "</pre>";*/
