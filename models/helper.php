@@ -84,16 +84,8 @@ function saveSchedule($link, $date, $schedule)
     $date = "$date_arr[2]-$date_arr[1]-$date_arr[0]";
     $date = mysqli_real_escape_string($link, trim($date));
     $schedule = mysqli_real_escape_string($link, trim($schedule));
-    $query = sprintf("SELECT date FROM organizer WHERE date='%s'", $date);
+    $query = sprintf("REPLACE INTO organizer (date, schedule) VALUES ('%s', '%s')", $date, $schedule);
     $result = mysqli_query($link, $query) or die(mysqli_error($link));
-    //var_dump(mysqli_num_rows($result));
-    if (mysqli_num_rows($result) === 0) {
-        $query = sprintf("INSERT INTO organizer (date, schedule) VALUES ('%s', '%s')", $date, $schedule);
-        $result = mysqli_query($link, $query) or die(mysqli_error($link));
-    } else {
-        $query = sprintf("UPDATE organizer SET date='%s', schedule='%s' WHERE date='%s'", $date, $schedule, $date);
-        $result = mysqli_query($link, $query) or die(mysqli_error($link));
-    }
     return $result;
 }
 
